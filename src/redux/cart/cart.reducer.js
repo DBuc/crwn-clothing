@@ -28,7 +28,6 @@ const cartReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 cartItems: state.cartItems.filter(
                     cartItem => {
-                        console.log('CLEAR_ITEM_FROM_CART: filter: cartItem.id=', cartItem.id, "action.payload.id=", action.payload.id); 
                         return cartItem.id !== action.payload.id
                     } 
                 )

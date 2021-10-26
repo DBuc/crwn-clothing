@@ -27,15 +27,12 @@ class App extends React.Component {
         const additionalData = {};
         const userRef = await createUserProfileDocument(userAuth, additionalData);
 
-        console.log('App.componentDidMount(): userRef=', userRef);
         userRef.onSnapshot( snapShot => {
             setCurrentUser({
               id: snapShot.id,
               ...snapShot.data()
             });
           });
-      } else {
-        console.log('userAuth is null (falsy), so this must be a sign-out.')
       }
       setCurrentUser(userAuth)
     });
@@ -46,7 +43,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("this.props.currentUser=", this.props.currentUser);
     return (
       <div>
         <Header />
